@@ -1,64 +1,111 @@
 import React from "react";
 import MailForm from "../components/MailForm";
 
+import {
+  MainContent,
+  Header,
+  Title,
+  Subtitle,
+  SectionGrid,
+  Card,
+  CardTitle,
+  CardText,
+  PrinciplesList,
+  GraphSection,
+  GraphTitle,
+  GraphPlaceholder,
+  GraphImage,
+  FormSection,
+  CardIcon,
+  SectionFlex,
+  SectionText,
+  ContainerText,
+  SectionTitle,
+  SectionImage,
+  ContainerImage,
+  ContactBtn,
+  HeaderBackImage,
+  HeaderContent,
+} from "./styles/HomePageStyles";
+
 const HomePage = () => {
   /* const handleFormSuccess = () => {
     console.log("Formulário enviado com sucesso!");
   }; */
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 font-inter">
-      <header className="text-center mb-12">
-        <h1 className="text-5xl font-extrabold text-green-700 leading-tight mb-4">
-          Economia Circular: Um Futuro Sustentável
-        </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Transformando a maneira como produzimos e consumimos para um planeta
-          mais saudável.
-        </p>
-      </header>
-
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16">
-        <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 flex flex-col items-center text-center">
-          <img
-            src="https://placehold.co/150x150/007bff/ffffff?text=Reutilizar"
-            alt="Ícone Reutilizar"
-            className="mb-6 w-36 h-36 rounded-full object-cover shadow-md"
+    <MainContent>
+      <Header>
+        <HeaderBackImage
+          src="https://images.pexels.com/photos/3184312/pexels-photo-3184312.jpeg"
+          alt=""
+        />
+        <HeaderContent>
+          <Title>Economia Circular: Um Futuro Sustentável</Title>
+          <Subtitle>
+            Transformando a maneira como produzimos e consumimos para um planeta
+            mais saudável.
+          </Subtitle>
+        </HeaderContent>
+      </Header>
+      <SectionFlex>
+        <ContainerText>
+          <SectionTitle>Economia Circular em Ação</SectionTitle>
+          <SectionText>
+            Conheça o sistema que está reinventando a forma como produzimos e
+            vivemos. A economia circular propõe uma nova lógica de consumo, onde
+            os recursos são reaproveitados, os resíduos ganham novos
+            significados e os ciclos produtivos se tornam mais inteligentes e
+            sustentáveis.
+          </SectionText>
+          <ContactBtn href="#">Fale Conosco</ContactBtn>
+        </ContainerText>
+        <ContainerImage>
+          <SectionImage
+            src="https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg"
+            alt="Pexels Image"
           />
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">O Que É?</h2>
-          <p className="text-gray-700 leading-relaxed">
+          <SectionImage
+            src="https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg"
+            alt="Pexels Image"
+          />
+          <SectionImage
+            src="https://images.pexels.com/photos/1647919/pexels-photo-1647919.jpeg"
+            alt="Pexels Image"
+          />
+        </ContainerImage>
+      </SectionFlex>
+      <SectionGrid>
+        <Card>
+          <CardIcon background="#3dfb7e">
+            <ion-icon name="leaf"></ion-icon>
+          </CardIcon>
+          <CardTitle>O Que É?</CardTitle>
+          <CardText>
             A Economia Circular é um modelo de produção e consumo que envolve o
             compartilhamento, leasing, reutilização, reparação, renovação e
             reciclagem de materiais e produtos existentes o máximo possível.
             Dessa forma, o ciclo de vida dos produtos é estendido.
-          </p>
-        </div>
-        <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 flex flex-col items-center text-center">
-          <img
-            src="https://placehold.co/150x150/28a745/ffffff?text=Reciclar"
-            alt="Ícone Reciclar"
-            className="mb-6 w-36 h-36 rounded-full object-cover shadow-md"
-          />
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">
-            Por Que É Importante?
-          </h2>
-          <p className="text-gray-700 leading-relaxed">
+          </CardText>
+        </Card>
+        <Card>
+          <CardIcon background="#6e69dd">
+            <i className="bi bi-recycle"></i>
+          </CardIcon>
+          <CardTitle>Por Que É Importante?</CardTitle>
+          <CardText>
             Ela visa reduzir o desperdício, minimizar a poluição, manter
             produtos e materiais em uso e regenerar sistemas naturais. É uma
             alternativa crucial ao modelo linear de "extrair, produzir, usar e
             descartar".
-          </p>
-        </div>
-        <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 flex flex-col items-center text-center col-span-1 md:col-span-2">
-          <img
-            src="https://placehold.co/150x150/ffc107/ffffff?text=Reduzir"
-            alt="Ícone Reduzir"
-            className="mb-6 w-36 h-36 rounded-full object-cover shadow-md"
-          />
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">
-            Princípios Chave
-          </h2>
-          <ul className="text-gray-700 leading-relaxed list-disc list-inside text-left max-w-xl mx-auto">
+          </CardText>
+        </Card>
+        <Card>
+          <CardIcon background="#fdb740">
+            <ion-icon name="flash"></ion-icon>
+          </CardIcon>
+          <CardTitle>Princípios Chave</CardTitle>
+          <PrinciplesList>
             <li>
               <strong>Reduzir:</strong> Minimizar o consumo de recursos e a
               geração de resíduos.
@@ -79,27 +126,24 @@ const HomePage = () => {
               <strong>Regenerar:</strong> Devolver recursos biológicos à
               natureza.
             </li>
-          </ul>
-        </div>
-      </section>
+          </PrinciplesList>
+        </Card>
+      </SectionGrid>
 
-      <section className="w-full max-w-3xl mx-auto mb-16">
-        <h2 className="text-4xl font-bold text-center text-green-700 mb-8">
-          Gráfico: Fluxo da Economia Circular
-        </h2>
-        <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 flex justify-center items-center">
-          <img
-            src="https://placehold.co/600x300/e0e0e0/333333?text=Gráfico+Economia+Circular"
+      <GraphSection>
+        <GraphTitle>Gráfico: Fluxo da Economia Circular</GraphTitle>
+        <GraphPlaceholder>
+          <GraphImage
+            src="https://thumbs.dreamstime.com/z/o-diagrama-infogr%C3%A1fico-vetorial-do-conceito-de-economia-circular-tem-tr%C3%AAs-dimens%C3%B5es-por-exemplo-fabrico-conceber-e-deve-ser-249789572.jpg?ct=jpeg"
             alt="Gráfico Ilustrativo da Economia Circular"
-            className="w-full h-auto rounded-lg"
           />
-        </div>
-      </section>
+        </GraphPlaceholder>
+      </GraphSection>
 
-      <section className="w-full max-w-3xl mx-auto">
+      <FormSection>
         <MailForm />
-      </section>
-    </div>
+      </FormSection>
+    </MainContent>
   );
 };
 

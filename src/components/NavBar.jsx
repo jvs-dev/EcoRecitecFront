@@ -1,32 +1,42 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {
+  Nav,
+  NavContainer,
+  BrandLink,
+  NavLinks,
+  NavLink,
+} from "./styles/NavbarStyles";
 
 const Navbar = () => {
+  const [stayTop, setStayTop] = React.useState(false);
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setStayTop(true);
+    } else {
+      setStayTop(false);
+    }
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="bg-green-800 p-4 shadow-md font-inter">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link
-          to="/"
-          className="text-white text-2xl font-bold tracking-wide hover:text-green-200 transition duration-300"
-        >
-          Eco Recitec
-        </Link>
-        <div className="space-x-6">
-          <Link
-            to="/"
-            className="text-white text-lg font-medium hover:text-green-200 transition duration-300"
-          >
-            Home
-          </Link>
-          <Link
-            to="/data"
-            className="text-white text-lg font-medium hover:text-green-200 transition duration-300"
-          >
-            Dados
-          </Link>
-        </div>
-      </div>
-    </nav>
+    <Nav stayTop={stayTop}>
+      <NavContainer>
+        <BrandLink to="/">
+          <img src="/logo-recitec-02-02.png" alt="Eco Recitec Logo" />
+        </BrandLink>
+        <NavLinks>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/data">Dados</NavLink>
+        </NavLinks>
+      </NavContainer>
+    </Nav>
   );
 };
 export default Navbar;

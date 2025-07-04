@@ -2,13 +2,23 @@ import { useState } from "react";
 import MessageBox from "./MessageBox";
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
+import {
+  FormContainer,
+  FormTitle,
+  FormGroup,
+  Label,
+  Input,
+  Textarea,
+  SubmitButton,
+} from "./styles/FormStyles";
+
 function MailForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(""); // Usado para feedback de envio
   const [statusType, setStatusType] = useState(""); // 'success' ou 'error'
 
   const handleChange = (e) => {
@@ -24,7 +34,6 @@ function MailForm() {
     setStatus("Enviando...");
     setStatusType("");
     try {
-      // Validação básica do lado do cliente antes de enviar
       if (!formData.name || !formData.email || !formData.message) {
         setStatus("Por favor, preencha todos os campos obrigatórios.");
         setStatusType("error");
@@ -49,7 +58,6 @@ function MailForm() {
         throw new Error(errorData.error || "Erro ao enviar a mensagem.");
       }
 
-      // const data = await response.json(); // Se precisar dos dados de retorno do POST
       setStatus("Mensagem enviada com sucesso!");
       setStatusType("success");
       setFormData({ name: "", email: "", message: "" });
@@ -66,79 +74,55 @@ function MailForm() {
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto bg-white p-8 rounded-xl shadow-lg border border-gray-200">
-      <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 font-inter">
-        Fale Conosco
-      </h2>
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Nome Completo
-          </label>
-          <input
+    <FormContainer>
+      <FormTitle>Fale Conosco</FormTitle>
+      <form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Label htmlFor="name">Nome Completo</Label>
+          <Input
             type="text"
             id="name"
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200"
             placeholder="Seu nome"
             required
           />
-        </div>
-        <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            E-mail
-          </label>
-          <input
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="email">E-mail</Label>
+          <Input
             type="email"
             id="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200"
             placeholder="seu.email@exemplo.com"
             required
           />
-        </div>
-        <div>
-          <label
-            htmlFor="message"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Mensagem ou Comentário
-          </label>
-          <textarea
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="message">Mensagem ou Comentário</Label>
+          <Textarea
             id="message"
             name="message"
             rows="5"
             value={formData.message}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200 resize-y"
-            placeholder="Sua mensagem sobre economia circular..."
+            placeholder="Escreva sua menssagem..."
             required
-          ></textarea>
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:from-green-600 hover:to-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-          disabled={status === "Enviando..."}
-        >
+          ></Textarea>
+        </FormGroup>
+        <SubmitButton type="submit" disabled={status === "Enviando..."}>
           {status === "Enviando..." ? "Enviando..." : "Enviar Mensagem"}
-        </button>
+        </SubmitButton>
       </form>
       <MessageBox
         message={status}
         type={statusType}
         onClose={() => setStatus("")}
       />
-    </div>
+    </FormContainer>
   );
 }
 

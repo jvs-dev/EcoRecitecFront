@@ -3,30 +3,52 @@ import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import DataPage from "./pages/DataPage";
 import Navbar from "./components/NavBar";
+import styled from "styled-components";
+import { GlobalStyle } from "./styles/GlobalStyles";
+
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  background-color: #f9fafb;
+`;
+
+const FooterContainer = styled.footer`
+  background-color: #1f2937;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+  font-family: "Inter", sans-serif;
+`;
+
+const FooterText = styled.p`
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+`;
 
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
+      <GlobalStyle />
+      <AppContainer>
         <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/data" element={<DataPage />} />
-          </Routes>
-        </main>
-        <footer className="bg-gray-800 text-white text-center p-6 mt-auto font-inter">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/data" element={<DataPage />} />
+        </Routes>
+        <FooterContainer>
           <p>
             &copy; {new Date().getFullYear()} Eco Recitec. Todos os direitos
             reservados.
           </p>
-          <p className="text-sm mt-2">
+          <FooterText>
             Desenvolvido para o desafio de processo seletivo.
-          </p>
-        </footer>
-      </div>
+          </FooterText>
+        </FooterContainer>
+      </AppContainer>
     </Router>
   );
 }
-
 export default App;
