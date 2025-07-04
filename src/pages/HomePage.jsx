@@ -1,5 +1,10 @@
 import React from "react";
 import MailForm from "../components/MailForm";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import {
   MainContent,
@@ -20,12 +25,11 @@ import {
   SectionFlex,
   SectionText,
   ContainerText,
-  SectionTitle,
-  SectionImage,
-  ContainerImage,
+  SectionTitle,  
   ContactBtn,
   HeaderBackImage,
   HeaderContent,
+  ImageCarouselWrapper,  
 } from "./styles/HomePageStyles";
 
 const HomePage = () => {
@@ -60,20 +64,41 @@ const HomePage = () => {
           </SectionText>
           <ContactBtn href="#">Fale Conosco</ContactBtn>
         </ContainerText>
-        <ContainerImage>
-          <SectionImage
-            src="https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg"
-            alt="Pexels Image"
-          />
-          <SectionImage
-            src="https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg"
-            alt="Pexels Image"
-          />
-          <SectionImage
-            src="https://images.pexels.com/photos/1647919/pexels-photo-1647919.jpeg"
-            alt="Pexels Image"
-          />
-        </ContainerImage>
+        <ImageCarouselWrapper>
+          <Swiper
+            direction={"vertical"}
+            slidesPerView={1}
+            spaceBetween={10} // Sem espaçamento entre as imagens
+            mousewheel={true}
+            navigation={false} // Habilita botões de navegação
+            pagination={false} // Desabilita paginação
+            autoplay={{
+              delay: 4000, // Atraso de 4 segundos
+              disableOnInteraction: false,
+            }}
+            modules={[Navigation, Autoplay]} // Apenas Navigation e Autoplay
+            className="myImageSwiper" // Classe para estilização específica se necessário
+          >
+            <SwiperSlide>
+              <img
+                src="https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg"
+                alt="Imagem 1"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src="https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg"
+                alt="Imagem 2"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src="https://images.pexels.com/photos/1647919/pexels-photo-1647919.jpeg"
+                alt="Imagem 3"
+              />
+            </SwiperSlide>
+          </Swiper>
+        </ImageCarouselWrapper>
       </SectionFlex>
       <SectionGrid>
         <Card>

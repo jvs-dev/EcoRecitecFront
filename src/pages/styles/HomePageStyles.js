@@ -62,9 +62,10 @@ export const Subtitle = styled.p`
 export const SectionFlex = styled.section`
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 100%;
   justify-content: center;
-  gap: 2.2rem;
+  gap: 4.2rem;
   max-width: 1520px;
   background: #fff;
   border-radius: 20px;
@@ -315,4 +316,91 @@ export const FormSection = styled.section`
   max-width: 48rem;
   margin-left: auto;
   margin-right: auto;
+`;
+
+export const CarouselContainer = styled.div`
+  width: 100%;
+  max-width: 48rem; 
+  height: 400px; 
+  margin: 4rem auto; 
+  background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  overflow: hidden; 
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.25rem;
+    color: #1f2937;
+    padding: 1rem;
+    background-color: #f0fdf4; 
+  }
+
+  .swiper-slide img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .swiper-button-prev, .swiper-button-next {
+    color: #15803d; 
+  }
+`;
+
+export const CarouselSlideContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+`;
+
+export const CarouselSlideTitle = styled.h3`
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #15803d;
+`;
+
+export const CarouselSlideText = styled.p`
+  font-size: 1rem;
+  color: #374151;
+`;
+
+export const ImageCarouselWrapper = styled.div`
+  width: 100%;
+  max-width: 400px; 
+  height: 450px; 
+  position: relative; 
+  border-radius: 20px;
+  overflow: hidden; 
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 20px; 
+  }
 `;
