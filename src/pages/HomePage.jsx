@@ -34,7 +34,7 @@ import {
 
 const HomePage = () => {
   /* const handleFormSuccess = () => {
-    console.log("Formulário enviado com sucesso!");
+    console.log("Formulário enviado com sucesso!"); use para testar formulario localmente
   }; */
 
   return (
