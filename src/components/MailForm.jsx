@@ -1,13 +1,16 @@
 import { useState } from "react";
+import MessageBox from "./MessageBox";
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
-function MailForm(props) {
+function MailForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
   const [status, setStatus] = useState("");
+  const [statusType, setStatusType] = useState(""); // 'success' ou 'error'
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
@@ -19,13 +22,17 @@ function MailForm(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Enviando...");
+    setStatusType("");
     try {
+      // Validação básica do lado do cliente antes de enviar
       if (!formData.name || !formData.email || !formData.message) {
         setStatus("Por favor, preencha todos os campos obrigatórios.");
+        setStatusType("error");
         return;
       }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
         setStatus("Por favor, insira um endereço de e-mail válido.");
+        setStatusType("error");
         return;
       }
 
@@ -42,17 +49,18 @@ function MailForm(props) {
         throw new Error(errorData.error || "Erro ao enviar a mensagem.");
       }
 
+      // const data = await response.json(); // Se precisar dos dados de retorno do POST
       setStatus("Mensagem enviada com sucesso!");
-      props.action && props.action();
+      setStatusType("success");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       setStatus("Erro ao enviar a mensagem. Tente novamente.");
+      setStatusType("error");
       console.error("Erro no envio:", error);
     } finally {
       setTimeout(() => {
-        if (status !== "Enviando...") {
-          setStatus("");
-        }
+        setStatus("");
+        setStatusType("");
       }, 5000);
     }
   };
@@ -123,17 +131,13 @@ function MailForm(props) {
           disabled={status === "Enviando..."}
         >
           {status === "Enviando..." ? "Enviando..." : "Enviar Mensagem"}
-        </button>        
-        {status && status !== "Enviando..." && (
-          <p
-            className={`text-center mt-4 text-sm font-medium ${
-              status.includes("sucesso") ? "text-green-600" : "text-red-600"
-            }`}
-          >
-            {status}
-          </p>
-        )}
+        </button>
       </form>
+      <MessageBox
+        message={status}
+        type={statusType}
+        onClose={() => setStatus("")}
+      />
     </div>
   );
 }

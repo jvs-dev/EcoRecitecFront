@@ -2,9 +2,9 @@ import React from "react";
 import MailForm from "../components/MailForm";
 
 const HomePage = () => {
-  const handleFormSuccess = () => {
+  /* const handleFormSuccess = () => {
     console.log("Formulário enviado com sucesso!");
-  };
+  }; */
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 font-inter">
@@ -97,7 +97,7 @@ const HomePage = () => {
       </section>
 
       <section className="w-full max-w-3xl mx-auto">
-        <MailForm action={handleFormSuccess} />
+        <MailForm />
       </section>
     </div>
   );
