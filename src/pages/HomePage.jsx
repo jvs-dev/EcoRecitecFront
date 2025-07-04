@@ -157,10 +157,10 @@ const HomePage = () => {
           <CardIcon background="#19b6ff">
             <ion-icon name="rocket"></ion-icon>
           </CardIcon>
-          <CardTitle>VANTEGENS</CardTitle>
+          <CardTitle>Vantagens</CardTitle>
           <PrinciplesList>
             <li>
-              Redução de custos operacionais Ao reutilizar materiais, otimizar
+              Redução de custos operacionais ao reutilizar materiais, otimizar
               processos e reduzir o desperdício, a empresa economiza em
               matéria-prima, energia e logística.
             </li>
