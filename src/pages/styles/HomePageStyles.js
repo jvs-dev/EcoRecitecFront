@@ -65,7 +65,7 @@ export const SectionFlex = styled.section`
   width: 100%;
   justify-content: center;
   gap: 2.2rem;
-  max-width: 1020px;
+  max-width: 1520px;
   background: #fff;
   border-radius: 20px;
   padding: 0px 40px;
