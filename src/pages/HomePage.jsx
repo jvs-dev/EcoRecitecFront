@@ -25,11 +25,11 @@ import {
   SectionFlex,
   SectionText,
   ContainerText,
-  SectionTitle,  
+  SectionTitle,
   ContactBtn,
   HeaderBackImage,
   HeaderContent,
-  ImageCarouselWrapper,  
+  ImageCarouselWrapper,
 } from "./styles/HomePageStyles";
 
 const HomePage = () => {
@@ -68,16 +68,16 @@ const HomePage = () => {
           <Swiper
             direction={"vertical"}
             slidesPerView={1}
-            spaceBetween={10} 
+            spaceBetween={10}
             mousewheel={true}
-            navigation={false} 
-            pagination={false} 
+            navigation={false}
+            pagination={false}
             autoplay={{
-              delay: 4000, 
+              delay: 4000,
               disableOnInteraction: false,
             }}
-            modules={[Navigation, Autoplay]} 
-            className="myImageSwiper" 
+            modules={[Navigation, Autoplay]}
+            className="myImageSwiper"
           >
             <SwiperSlide>
               <img
@@ -150,6 +150,29 @@ const HomePage = () => {
             <li>
               <strong>Regenerar:</strong> Devolver recursos biológicos à
               natureza.
+            </li>
+          </PrinciplesList>
+        </Card>
+        <Card>
+          <CardIcon background="#19b6ff">
+            <ion-icon name="rocket"></ion-icon>
+          </CardIcon>
+          <CardTitle>VANTEGENS</CardTitle>
+          <PrinciplesList>
+            <li>
+              Redução de custos operacionais Ao reutilizar materiais, otimizar
+              processos e reduzir o desperdício, a empresa economiza em
+              matéria-prima, energia e logística.
+            </li>
+            <li>
+              A economia circular diminui a geração de resíduos, reduz a
+              extração de recursos naturais e contribui para a diminuição das
+              emissões de carbono.
+            </li>
+            <li>
+              Estimula o design de produtos mais duráveis, modulares e
+              recicláveis, incentivando soluções criativas e sustentáveis que
+              diferenciam a marca no mercado.
             </li>
           </PrinciplesList>
         </Card>

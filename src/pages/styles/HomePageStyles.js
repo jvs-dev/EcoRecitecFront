@@ -69,10 +69,10 @@ export const SectionFlex = styled.section`
   max-width: 1520px;
   background: #fff;
   border-radius: 20px;
-  padding: 0px 40px;
+  padding: 40px 40px;
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 40px 0px;
+    padding: 60px 0px;
   }  
   `;
 
