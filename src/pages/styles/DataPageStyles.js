@@ -9,12 +9,12 @@ export const TableContainer = styled.div`
   border: 1px solid #e5e7eb; 
   margin-left: auto;
   margin-right: auto;
-  max-width: 72rem; 
+  max-width: calc(100vw - 80px);
 `;
 
-export const StyledTable = styled.table`
-  min-width: 100%;
+export const StyledTable = styled.table`  
   border-collapse: collapse;
+  min-width: 600px;
   & > thead {
     background-color: #dcfce7; 
   }
@@ -46,6 +46,18 @@ export const StyledTable = styled.table`
       white-space: nowrap;
       font-size: 0.875rem; 
       color: #374151; 
+      max-width: 100%;
+      text-wrap: auto;
+      word-break: break-word;
+      min-width: 120px;
+    }
+    & > tr > td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 10px;
+      top: 12px;
+      font-weight: bold;
+      white-space: nowrap;
     }
     & > tr > td:first-child {
       font-weight: 500; 

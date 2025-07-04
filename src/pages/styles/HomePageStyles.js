@@ -42,6 +42,7 @@ export const Title = styled.h1`
   line-height: 1.25;
   margin-bottom: 1rem;
   margin-top: ${props => props.marginTop || '0'};
+  text-align: center;
   font-family: "Poppins", sans-serif;  
   @media (min-width: 768px) {
     font-size: 3.75rem;
@@ -68,6 +69,10 @@ export const SectionFlex = styled.section`
   background: #fff;
   border-radius: 20px;
   padding: 0px 40px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 40px 0px;
+  }  
   `;
 
 export const SectionTitle = styled.h2`
@@ -108,6 +113,9 @@ export const ContainerText = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  @media (max-width: 768px) {
+   padding: 0px 40px; 
+  }
   `;
 
 export const ContactBtn = styled.a`
@@ -141,6 +149,9 @@ export const ContainerImage = styled.section`
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  @media (max-width: 768px) {
+    flex-direction: row;
+  }  
   `;
 
 export const SectionImage = styled.img`
@@ -161,6 +172,19 @@ export const SectionImage = styled.img`
     border-radius: 38px 38px 0px 0px;
     height: 150px;
   }
+  @media (max-width: 768px) {
+    &:nth-child(1) {
+            border-radius: 0px 38px 38px 0px;
+    height: 150px;
+  }
+  &:nth-child(2) {    
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+   &:nth-child(3) {
+    border-radius: 38px 0px 0px 38px;
+    height: 150px;
+  }
+  }  
 `;
 
 export const SectionGrid = styled.section`

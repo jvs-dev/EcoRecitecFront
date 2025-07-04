@@ -134,7 +134,7 @@ const HomePage = () => {
         <GraphTitle>Gráfico: Fluxo da Economia Circular</GraphTitle>
         <GraphPlaceholder>
           <GraphImage
-            src="https://thumbs.dreamstime.com/z/o-diagrama-infogr%C3%A1fico-vetorial-do-conceito-de-economia-circular-tem-tr%C3%AAs-dimens%C3%B5es-por-exemplo-fabrico-conceber-e-deve-ser-249789572.jpg?ct=jpeg"
+            src="/circular-economy-graph.png"
             alt="Gráfico Ilustrativo da Economia Circular"
           />
         </GraphPlaceholder>
