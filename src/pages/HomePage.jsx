@@ -62,7 +62,7 @@ const HomePage = () => {
             significados e os ciclos produtivos se tornam mais inteligentes e
             sustentáveis.
           </SectionText>
-          <ContactBtn href="#">Fale Conosco</ContactBtn>
+          <ContactBtn type="button" onClick={()=> document.getElementById("mailform").scrollIntoView({ behavior: 'smooth' })}>Fale Conosco</ContactBtn>
         </ContainerText>
         <ImageCarouselWrapper>
           <Swiper
@@ -188,7 +188,7 @@ const HomePage = () => {
         </GraphPlaceholder>
       </GraphSection>
 
-      <FormSection>
+      <FormSection id="mailform">
         <MailForm />
       </FormSection>
     </MainContent>

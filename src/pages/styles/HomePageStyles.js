@@ -119,7 +119,9 @@ export const ContainerText = styled.div`
   }
   `;
 
-export const ContactBtn = styled.a`
+export const ContactBtn = styled.button`
+  border: 0px;
+  outline-width: 0px;
   display: inline-block;
   padding: 0.75rem 1.5rem;
   background-color: #19b6ff;
@@ -128,6 +130,7 @@ export const ContactBtn = styled.a`
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
+  cursor: pointer;
   transition: 0.3s ease;
   &:hover {
     background-color: #19b6ff;
