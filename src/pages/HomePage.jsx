@@ -68,16 +68,16 @@ const HomePage = () => {
           <Swiper
             direction={"vertical"}
             slidesPerView={1}
-            spaceBetween={10} // Sem espaçamento entre as imagens
+            spaceBetween={10} 
             mousewheel={true}
-            navigation={false} // Habilita botões de navegação
-            pagination={false} // Desabilita paginação
+            navigation={false} 
+            pagination={false} 
             autoplay={{
-              delay: 4000, // Atraso de 4 segundos
+              delay: 4000, 
               disableOnInteraction: false,
             }}
-            modules={[Navigation, Autoplay]} // Apenas Navigation e Autoplay
-            className="myImageSwiper" // Classe para estilização específica se necessário
+            modules={[Navigation, Autoplay]} 
+            className="myImageSwiper" 
           >
             <SwiperSlide>
               <img
