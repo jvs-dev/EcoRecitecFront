@@ -46,6 +46,10 @@ export const FormTitle = styled.h2`
 
 export const FormGroup = styled.div`
   margin-bottom: 1.5rem;
+  position: relative;
+  &:focus-within label {
+    color: #22c55e;
+  }
 `;
 
 export const Label = styled.label`
@@ -53,7 +57,13 @@ export const Label = styled.label`
   font-size: 0.875rem;
   font-weight: 500;
   color: #374151;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.25rem;  
+  &::after {
+    content: '*';
+    color: #dc2626;
+    margin-left: 0.25rem;
+  }
+  transition: color 200ms ease-in-out;
 `;
 
 export const Input = styled.input`
